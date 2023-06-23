@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+<bean class="com.springcore.refinjection.Engine" name="engine1">
+	<property name="stroke"><value>4</value> </property>
+	<property name="cc" value="1000"/>
+	<property name="volume" value="2L"></property>
+</bean>
+
+<!-- Using property & value -->
+<bean class="com.springcore.refinjection.Car" name="car1">
+
+	<property name="color" value="black"/>
+	<property name="price" value="10.5"/>
+	<property name="drive" value="4WD"/>
+	<!-- Using ref as a tag
+	<property name="engine">
+		<ref bean="engine1"/>
+	</property>
+	-->
+	<!-- Using ref as a attribute -->
+	<property name="engine" ref="engine1"/>
+</bean>
+
+<!-- Using p-schema -->
+<bean class="com.springcore.refinjection.Car" name="car2" p:color="red" p:price="9.5" p:drive="2WD" p:engine-ref="engine1"/>
+
+</beans>

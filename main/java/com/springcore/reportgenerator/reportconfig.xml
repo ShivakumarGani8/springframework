@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xmlns:c="http://www.springframework.org/schema/c"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ <!-- Property injection using property & value (setter injection) -->
+ <bean class="com.springcore.reportgenerator.Student" name="student1">
+ 	<property name="rollNo" value="10"/>
+ 	<property name="maxMarks" value="600"/>
+ 	<property name="subjects">
+ 		<map>
+ 			<entry key="Kannda" value="91"></entry>
+ 			<entry key="English"><value>92</value></entry>
+ 			<entry key="Hindi"><value>93</value></entry>
+ 			<entry key="Sciene"><value>65</value></entry>
+ 			<entry key="Social Sciene"><value>76</value></entry>
+ 			<entry key="Mathematics"><value>78</value></entry>
+ 		</map>
+ 	</property>
+ </bean>
+ <!-- Dependency injection using constructor injection -->
+ <bean class="com.springcore.reportgenerator.Person" name="person1">
+ 	<constructor-arg value="24" />
+ 	<constructor-arg value="Shivakumar Gani"/>
+ 	<constructor-arg ref="student1"/>
+ </bean>
+ 
+ <bean class="com.springcore.reportgenerator.Student" name="student2" p:rollNo="11" 
+ p:maxMarks="600">
+ 	<property name="subjects">
+ 		<map>
+ 			<entry key="Kannda" value="95" />
+ 			<entry key="English" value="91"/>
+ 			<entry key="Hindi" value="98"/>
+ 			<entry key="Sciene" value="70"/>
+ 			<entry key="Social Sciene" value="76" />
+ 			<entry key="Mathematics" value="80" />
+ 		</map>
+ 	</property>
+ </bean>
+ <!-- Using c-schema -->
+ <bean class="com.springcore.reportgenerator.Person" name="person2" c:name="John" c:age="24" c:student-ref="student2"/>
+</beans>
