@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ <!-- Stereotype bean scope -->
+ <context:component-scan base-package="com.springcore.beanscope"/>
+ 
+ <!-- bean scope using bean tag by default with singleton scope-->
+ <bean class="com.springcore.beanscope.BeanScope" name="scope1" />
+ <bean class="com.springcore.beanscope.BeanScope" name="scope2" scope="prototype"/>
+ 
+</beans>

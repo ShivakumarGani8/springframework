@@ -8,12 +8,17 @@
  http://www.springframework.org/schema/context
  http://www.springframework.org/schema/context/spring-context.xsd">
  
+<context:annotation-config/> 
  <!-- XML configuration of Bean lifecycle -->
  <bean class="com.springcore.lifecycle.XMLConfigure" name="configure1" init-method="init" destroy-method="destroy">
  	<property name="tempString" value="This is string for XML lifecycle Configure"/>
  </bean>
  
+ <!-- Interface configuration of Bean lifecycle -->
  <bean class="com.springcore.lifecycle.InterfaceConfigure" name="configure2" 
  p:confString="This is string for interface lifecycle configure"/>
 
+<!-- Annotation configuration of Bean lifecycle-->
+<bean class="com.springcore.lifecycle.AnnotationConfigure" name="configure3" 
+p:confString="This is string for Annotation lifecycle configure"/>
 </beans>

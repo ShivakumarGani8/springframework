@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xmlns:c="http://www.springframework.org/schema/c"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ <context:annotation-config/> 
+ 
+<bean class="com.springcore.auto.wire.Address" name="address" c:state="Karnataka" c:town="Linganur" c:pincode="587301"/> 
+ <bean class="com.springcore.auto.wire.Address" name="address1" c:state="Kar" c:town="JKD" c:pincode="587301"/>
+<!-- 
+<bean class="com.springcore.auto.wire.Employee" name="emp1" autowire="constructor">
+	<property name="name" value="Shivakumar Gani"/>
+</bean>
+-->
+<!-- 
+<bean class="com.springcore.auto.wire.Employee" name="emp1" c:name="Shivakumar" autowire="constructor">
+</bean>
+-->
+<bean class="com.springcore.auto.wire.Employee" name="emp1" p:name="Shivakumar" autowire="byName"/>
+
+<!-- 
+<bean class="com.springcore.auto.wire.Employee" name="emp1" p:name="Shivakumar" autowire="byType"/>
+-->
+
+<bean class="com.springcore.auto.wire.AnnotationAutowire" name="emp2" p:tempString="This is temp string"/>
+</beans>
